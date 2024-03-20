@@ -1,0 +1,16 @@
+init -y
+@babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev
+react react-dom --save-dev
+@material-ui/core
+@babel/plugin-proposal-class-properties
+
+npm i webpack webpack-cli --save-dev
+npm install -g npm
+npm config list 
+npm install -g yarn
+npm install react@16.8.0 react-dom@16.8.0 
+yarn add react@16.8.0 react-dom@16.8.0   
+npm i @material-ui/icons  
+npm i @babel/core babel-loader @babel/preset-env @babel/preset-react --s
+npm install react-router-dom@5
+npm install @material-ui/lab
