@@ -11,5 +11,9 @@ python manage.py collectstatic --no-input
 # Apply any outstanding database migrations
 python manage.py migrate
 
+cd frontend
+
 # npm packages install 
 npm install 
+
+cd ..
