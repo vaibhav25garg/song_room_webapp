@@ -10,22 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-kc7i#w1yu7rfsm@h(^5@-d2do(-gi%=a^@k=r94w-f+e%vl333'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG","False").lower() == "true"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -71,7 +65,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'music_controlar.wsgi.application'
+DATABASES['default'] = dj_database_url.parse("postgres://spotify_song_room_user:chFK6vKy0ly9P7i3pTsZxgpboafKJdzf@dpg-cnstdiol5elc73fmmcl0-a.oregon-postgres.render.com/spotify_song_room")
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
