@@ -84,15 +84,12 @@ DATABASES = {
     }
 }
 
-<<<<<<< HEAD
 database_url = os.environ.get("DATABASE_URL")
-=======
-database_url = os.environment.get("DATABASE_URL")
->>>>>>> c86dee2fb974ab6371c5bb4aff29a639db03ee14
 DATABASES['default'] = dj_database_url.parse(database_url)
 # 
 
 # import os
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
@@ -146,8 +143,4 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
-<<<<<<< HEAD
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-=======
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
->>>>>>> c86dee2fb974ab6371c5bb4aff29a639db03ee14
