@@ -6,7 +6,6 @@ ReactDOM.render(
   <React.StrictMode>
     <HomePage />
   </React.StrictMode>,
-  document.getElementById('app')
 );
 
 // export default class App extends Component {
