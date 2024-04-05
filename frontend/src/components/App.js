@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import { ReactDOM } from "react-dom";
-import { render } from "react-dom";
+import React from "react";
+import ReactDOM from "react-dom";
 import HomePage from "./HomePage";
 
-
-ReactDOM.createRoot(document.getElementById('app')).render(
+ReactDOM.render(
   <React.StrictMode>
     <HomePage />
-  </React.StrictMode>
-)
+  </React.StrictMode>,
+  document.getElementById('app')
+);
+
 // export default class App extends Component {
 //   constructor(props) {
 //     super(props);
