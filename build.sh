@@ -18,6 +18,7 @@ npm install
 # Navigate to the Django project directory
 cd ..
 
+pip install --upgrade pip
 # Install Python dependencies
 echo "Installing Django dependencies..."
 pip install -r requirements.txt
