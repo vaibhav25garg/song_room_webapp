@@ -16,7 +16,7 @@ npm install
 
 
 # Navigate to the Django project directory
-cd $DJANGO_PROJECT_DIR
+cd ..
 
 # Install Python dependencies
 echo "Installing Django dependencies..."
