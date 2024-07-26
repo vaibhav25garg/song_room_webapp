@@ -1,20 +1,26 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
+import React from "react";
+import ReactDOM from "react-dom";
 import HomePage from "./HomePage";
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-  }
+ReactDOM.render(
+  <React.StrictMode>
+    <HomePage />
+  </React.StrictMode>,
+);
 
-  render() {
-    return (
-      <div className="center">
-        <HomePage />
-      </div>
-    );
-  }
-}
+// export default class App extends Component {
+//   constructor(props) {
+//     super(props);
+//   }
 
-const appDiv = document.getElementById("app");
-render(<App />, appDiv);
+//   render() {
+//     return (
+//       <div className="center">
+        
+//       </div>
+//     );
+//   }
+// }
+
+// const appDiv = document.getElementById("app");
+// render(<App />, appDiv);
