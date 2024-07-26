@@ -11,13 +11,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
-<<<<<<< HEAD
 from decouple import config
 import dj_database_url
-=======
-import dj_database_url
-# import whitenoise
->>>>>>> d3689b9c54645dfa217b2388a6cf25f0a1302569
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +24,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-kc7i#w1yu7rfsm@h(^5@-d2do(-gi%=a^@k=r94w-f+e%vl333'
-<<<<<<< HEAD
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -36,20 +31,6 @@ DEBUG = config('DEBUG', cast=bool)
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = config("ALLOWED_HOSTS").split(",")
-=======
-
-# # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-
-# ALLOWED_HOSTS = []
-
-SECRET_KEY = os.environ.get("SECRET_KEY")
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG","False").lower() == "true"
-
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "localhost").split(" ")
->>>>>>> d3689b9c54645dfa217b2388a6cf25f0a1302569
 
 # Application definition
 
@@ -74,11 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-<<<<<<< HEAD
     'whitenoise.middleware.WhiteNoiseMiddleware',
-=======
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
->>>>>>> d3689b9c54645dfa217b2388a6cf25f0a1302569
 ]
 
 ROOT_URLCONF = 'music_controlar.urls'
@@ -104,38 +81,16 @@ WSGI_APPLICATION = 'music_controlar.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-<<<<<<< HEAD
-DATABASES["default"] = dj_database_url.parse(config('DATABASE_URL'))
-=======
-# import os
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'spotify',
-#         'USER': 'postgres',
-#         'PASSWORD': 'vg2568@#',
-#         'HOST': 'localhost',
-#         'PORT': '5432'
-#     }
-# }
-
-# Replace the SQLite DATABASES configuration with PostgreSQL:
 DATABASES = {
-    'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgres://spotify_song_room_user:chFK6vKy0ly9P7i3pTsZxgpboafKJdzf@dpg-cnstdiol5elc73fmmcl0-a.oregon-postgres.render.com/spotify_song_room',
-        conn_max_age=600
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
->>>>>>> d3689b9c54645dfa217b2388a6cf25f0a1302569
+
+DATABASES["default"] = dj_database_url.parse(config('DATABASE_URL'))
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -172,7 +127,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-<<<<<<< HEAD
 STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'public')
@@ -182,7 +136,6 @@ STATICFILES_DIRS = [
     BASE_DIR,'static'
 ]
 
-=======
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
@@ -191,17 +144,13 @@ STATICFILES_DIRS = [
 STATIC_URL = '/static/'
 
 # This production code might break development mode, so we check whether we're in DEBUG mode
->>>>>>> d3689b9c54645dfa217b2388a6cf25f0a1302569
+
 if not DEBUG:
     # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
-    # and renames the files with unique names for each version to support long-term caching
-<<<<<<< HEAD
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-=======
-    # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
->>>>>>> d3689b9c54645dfa217b2388a6cf25f0a1302569
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
