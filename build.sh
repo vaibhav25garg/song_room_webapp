@@ -1,19 +1,36 @@
-#!/usr/bin/env bash
-# Exit on error
-set -o errexit
+#!/bin/bash
 
-# Modify this line as needed for your package manager (pip, poetry, etc.)
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+# Define your project's directories
+DJANGO_PROJECT_DIR=./
+REACT_PROJECT_DIR=./frontend
+
+# Navigate to the React project directory
+cd $REACT_PROJECT_DIR
+
+# Install dependencies and build the React app
+echo "Installing React dependencies..."
+npm install
+
+echo "Building React app..."
+npm run build
+
+# Navigate to the Django project directory
+cd $DJANGO_PROJECT_DIR
+
+# Install Python dependencies
+echo "Installing Django dependencies..."
 pip install -r requirements.txt
 
-# Convert static asset files
-python manage.py collectstatic --no-input
+# Collect static files
+echo "Collecting static files..."
+python manage.py collectstatic --noinput
 
-# Apply any outstanding database migrations
+# Apply migrations
+echo "Applying migrations..."
 python manage.py migrate
 
-cd frontend
-
-# npm packages install 
-npm install 
-
-cd ..
+# Print deployment success message
+echo "Deployment completed successfully!"
