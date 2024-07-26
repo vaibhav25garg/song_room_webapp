@@ -14,8 +14,6 @@ cd $REACT_PROJECT_DIR
 echo "Installing React dependencies..."
 npm install
 
-echo "Building React app..."
-npm run build
 
 # Navigate to the Django project directory
 cd $DJANGO_PROJECT_DIR
